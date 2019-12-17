@@ -1,12 +1,12 @@
-import React from 'react';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import React from "react";
+import Icon from "react-native-vector-icons/MaterialIcons";
 
-import { Animated } from 'react-native';
-import { PanGestureHandler, State } from 'react-native-gesture-handler';
+import { Animated } from "react-native";
+import { PanGestureHandler, State } from "react-native-gesture-handler";
 
-import Header from '~/components/Header';
-import Tabs from '~/components/Tabs';
-import Menu from '~/components/Menu';
+import Header from "~/components/Header";
+import Tabs from "~/components/Tabs";
+import Menu from "~/components/Menu";
 
 import {
   Container,
@@ -17,8 +17,8 @@ import {
   Title,
   Description,
   CardFooter,
-  Annotation,
-} from './styles';
+  Annotation
+} from "./styles";
 
 export default function Main() {
   let offset = 0;
@@ -28,13 +28,13 @@ export default function Main() {
     [
       {
         nativeEvent: {
-          translationY: translateY,
-        },
-      },
+          translationY: translateY
+        }
+      }
     ],
     {
-      useNativeDriver: true,
-    },
+      useNativeDriver: true
+    }
   );
 
   function onHandlerStateChange(event) {
@@ -55,7 +55,7 @@ export default function Main() {
       Animated.timing(translateY, {
         toValue: opened ? 450 : 0,
         duration: 200,
-        useNativeDriver: true,
+        useNativeDriver: true
       }).start(() => {
         offset = opened ? 450 : 0;
         translateY.setOffset(offset);
@@ -82,10 +82,10 @@ export default function Main() {
                   translateY: translateY.interpolate({
                     inputRange: [0, 450],
                     outputRange: [0, 450],
-                    extrapolate: 'clamp',
-                  }),
-                },
-              ],
+                    extrapolate: "clamp"
+                  })
+                }
+              ]
             }}
           >
             <CardHeader>
@@ -94,7 +94,7 @@ export default function Main() {
             </CardHeader>
             <CardContent>
               <Title>Saldo disponivel</Title>
-              <Description> R$ 201.434,33 </Description>
+              <Description> R$ 2.201.434,33 </Description>
             </CardContent>
             <CardFooter>
               <Annotation> Transferencia de R$ 20,00 reais</Annotation>
